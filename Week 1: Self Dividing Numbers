@@ -1,0 +1,21 @@
+class Solution(object):
+    def selfDividingNumbers(self, left, right):
+        """
+        :type left: int
+        :type right: int
+        :rtype: List[int]
+        """
+        Output=[]
+        digitCount = 0
+        mylist = range(left,right+1)
+        for i in range(len(mylist)):
+            #print mylist[i]
+            mystring = str(mylist[i])
+            digits = [int(d) for d in mystring]
+            for j in range(len(digits)):
+                if digits[j] <> 0 and mylist[i] % digits[j] == 0:
+                    digitCount += 1
+                if digitCount == len(digits):
+                    Output.append(mylist[i])
+            digitCount = 0
+        return Output
