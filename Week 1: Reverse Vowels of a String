@@ -1,0 +1,23 @@
+class Solution(object):
+    def reverseVowels(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        lst = list(s)
+        vMarker = []
+        vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
+        for i in range(len(lst)):
+            for j in range(len(vowels)):
+                if lst[i] == vowels[j]:
+                    vMarker.append(i)
+        vowels = len(vMarker)
+        
+        for i in range(vowels):
+            if i < (vowels-1-i):
+                h = lst[vMarker[i]]
+                lst[vMarker[i]] = lst[vMarker[vowels-1-i]]
+                lst[vMarker[vowels-1-i]] = h
+
+        return ''.join(lst)
+            
