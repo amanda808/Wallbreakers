@@ -1,0 +1,24 @@
+class Solution(object):
+    def hammingDistance(self, x, y):
+        """
+        :type x: int
+        :type y: int
+        :rtype: int
+        """
+        output = 0
+        
+        binX = list(bin(x)[2:])
+        binY = list(bin(y)[2:])
+        maxLength = min(len(binX), len(binY))
+        for i in range(maxLength):
+            if binX[len(binX)-1-i] <> binY[len(binY)-1-i]:
+                output += 1
+                
+        extra = abs(len(binX)-len(binY))
+        if x<y:
+            for i in range(extra):
+                output += int(binY[i])
+        elif y<x:
+            for i in range(extra):
+                output += int(binX[i])
+        return output
