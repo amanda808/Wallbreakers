@@ -1,0 +1,18 @@
+class Solution(object):
+    def fizzBuzz(self, n):
+        """
+        :type n: int
+        :rtype: List[str]
+        """
+        Output = []
+        myList = range(1,n+1)
+        for i in range(len(myList)):
+            if myList[i] % 3 == 0 and myList[i] % 5 == 0:
+                Output.append("FizzBuzz")
+            elif myList[i] % 5 == 0:
+                Output.append("Buzz")
+            elif myList[i] % 3 == 0:
+                Output.append("Fizz")
+            else:
+                Output.append(str(myList[i]))
+        return Output
