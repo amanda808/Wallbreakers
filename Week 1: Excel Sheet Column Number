@@ -1,0 +1,68 @@
+class Solution(object):
+    def titleToNumber(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        Output = []
+        letters = list(s)
+        for i in range(len(letters)):
+            if letters[i] == "A":
+                Output.append(1)
+            elif letters[i] == "B":
+                Output.append(2)
+            elif letters[i] == "C":
+                Output.append(3)
+            elif letters[i] == "D":
+                Output.append(4)
+            elif letters[i] == "E":
+                Output.append(5)
+            elif letters[i] == "F":
+                Output.append(6)
+            elif letters[i] == "G":
+                Output.append(7)
+            elif letters[i] == "H":
+                Output.append(8)
+            elif letters[i] == "I":
+                Output.append(9)
+            elif letters[i] == "J":
+                Output.append(10)
+            elif letters[i] == "K":
+                Output.append(11)
+            elif letters[i] == "L":
+                Output.append(12)
+            elif letters[i] == "M":
+                Output.append(13)
+            elif letters[i] == "N":
+                Output.append(14)
+            elif letters[i] == "O":
+                Output.append(15)
+            elif letters[i] == "P":
+                Output.append(16)
+            elif letters[i] == "Q":
+                Output.append(17)
+            elif letters[i] == "R":
+                Output.append(18)
+            elif letters[i] == "S":
+                Output.append(19)
+            elif letters[i] == "T":
+                Output.append(20)
+            elif letters[i] == "U":
+                Output.append(21)
+            elif letters[i] == "V":
+                Output.append(22)
+            elif letters[i] == "W":
+                Output.append(23)
+            elif letters[i] == "X":
+                Output.append(24)
+            elif letters[i] == "Y":
+                Output.append(25)
+            elif letters[i] == "Z":
+                Output.append(26)
+        answer = 0
+        for j in range(len(Output)):
+            answer += 26**(len(Output)-1-j)*Output[j]
+            
+        
+        return answer
+        
