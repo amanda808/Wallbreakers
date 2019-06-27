@@ -1,0 +1,14 @@
+class Solution(object):
+    def transpose(self, A):
+        """
+        :type A: List[List[int]]
+        :rtype: List[List[int]]
+        """
+        w = len(A)
+        h = len(A[0])
+        
+        Output = [[0 for x in range(w)] for y in range(h)]
+        for i in range(w):
+            for j in range(h):
+                Output[j][i]=A[i][j]
+        return Output
