@@ -1,0 +1,20 @@
+class Solution(object):
+    def isAnagram(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        S = list(s)
+        T = list(t)
+
+        if len(s) <> len(t):
+            return False
+        count = [0]*26
+        for i in range(len(s)):
+            count[ord(S[i])-97] += 1
+            count[ord(T[i])-97] -= 1
+        for j in count:
+            if j <> 0:
+                return False
+        return True
