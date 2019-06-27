@@ -1,0 +1,17 @@
+class Solution(object):
+    def isPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        import math
+        import string
+        letters = ''.join(ch for ch in s if ch.isalnum())
+        letters = letters.lower()
+        print letters
+
+        tests = int(math.floor(len(letters)/2))
+        for i in range(int(tests)):
+            if letters[i] <> letters[len(letters)-1-i]:
+                return False
+        return True
