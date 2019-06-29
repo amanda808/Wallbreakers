@@ -1,0 +1,54 @@
+class Solution(object):
+    def findCircleNum(self, M):
+        """
+        :type M: List[List[int]]
+        :rtype: int
+        """
+
+        
+        friendlist = []
+        for r in range(len(M)):
+            friendlist.append([r])
+        
+        #log direct friends
+        for r in range(len(M)):
+            for c in range(len(M[r])):
+                if r > c and M[r][c] == 1:
+                    friendlist.append([r,c])
+                    friendlist[r] = -1
+                    friendlist[c] = -1
+        friendlist = [n for n in friendlist if n != -1]                 #refresh on this: practice it more
+        #print "direct friends"
+        #print friendlist
+        
+    
+        #include indirect friends
+        for i in range(len(friendlist)):
+            j = 0
+            
+            while j <= len(friendlist)-1:
+                if i <> j and friendlist[i] <> [-1] and friendlist[j] <> [-1] and list(set(friendlist[i]) & set(friendlist[j])) <> []:
+                    #friendlist[i]=list(set().union(friendlist[i],friendlist[j+1]))
+                    friendlist[i] = list(set(friendlist[i]) | set(friendlist[j]))
+                    friendlist[j] = [-1]
+                    print i
+                    print j
+                    print "secondary"
+                    print friendlist
+                    j = i
+                else: j += 1
+
+        friendlist = [k for k in friendlist if k != [-1]] 
+        #print friendlist
+        
+        #re-run
+        '''for i in range(len(friendlist)):            
+            for m in range(len(friendlist)):
+                if i <> m and friendlist[i] <> [-1] and friendlist[m] <> [-1] and list(set(friendlist[i]) & set(friendlist[m])) <> []:
+                    friendlist[i] = list(set(friendlist[i]) | set(friendlist[m]))
+                    friendlist[m] = [-1]
+        friendlist = [k for k in friendlist if k != [-1]] '''
+        
+        return len(friendlist)
+    
+    
